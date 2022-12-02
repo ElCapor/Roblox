@@ -1,0 +1,132 @@
+{
+    "ServerName": "chi1-lapp845",
+    "ServerRegion": "us-central",
+    "ServerDC": "chi1",
+    "Members": [
+        {
+            "Name": "chi1-lapp845.us-central",
+            "Addr": "10.128.0.232",
+            "Port": 4648,
+            "Tags": {
+                "dc": "chi1",
+                "mvn": "1",
+                "rpc_addr": "10.128.0.232",
+                "role": "nomad",
+                "id": "df924689-a428-6e2d-ab42-e658bda0e32e",
+                "region": "us-central",
+                "build": "1.0.2-zd47412+ent",
+                "port": "4647",
+                "expect": "3",
+                "raft_vsn": "2",
+                "vsn": "1"
+            },
+            "Status": "alive",
+            "ProtocolMin": 1,
+            "ProtocolMax": 5,
+            "ProtocolCur": 2,
+            "DelegateMin": 2,
+            "DelegateMax": 5,
+            "DelegateCur": 4
+        },
+        {
+            "Name": "chi1-lapp846.us-central",
+            "Addr": "10.128.26.18",
+            "Port": 4648,
+            "Tags": {
+                "region": "us-central",
+                "dc": "chi1",
+                "vsn": "1",
+                "role": "nomad",
+                "port": "4647",
+                "id": "c531c2bb-dcc0-d3cf-8288-9f4c6ba9e4c6",
+                "mvn": "1",
+                "build": "1.0.2-zd47412+ent",
+                "raft_vsn": "2",
+                "rpc_addr": "10.128.26.18",
+                "expect": "3"
+            },
+            "Status": "alive",
+            "ProtocolMin": 1,
+            "ProtocolMax": 5,
+            "ProtocolCur": 2,
+            "DelegateMin": 2,
+            "DelegateMax": 5,
+            "DelegateCur": 4
+        },
+        {
+            "Name": "chi1-lapp848.us-central",
+            "Addr": "10.128.35.7",
+            "Port": 4648,
+            "Tags": {
+                "id": "fc4865c5-9c76-2d09-1006-ac126a44e214",
+                "mvn": "1",
+                "rpc_addr": "10.128.35.7",
+                "port": "4647",
+                "dc": "chi1",
+                "vsn": "1",
+                "build": "1.0.2-zd47412+ent",
+                "expect": "3",
+                "role": "nomad",
+                "raft_vsn": "2",
+                "region": "us-central"
+            },
+            "Status": "alive",
+            "ProtocolMin": 1,
+            "ProtocolMax": 5,
+            "ProtocolCur": 2,
+            "DelegateMin": 2,
+            "DelegateMax": 5,
+            "DelegateCur": 4
+        },
+        {
+            "Name": "chi1-lapp844.us-central",
+            "Addr": "10.128.4.106",
+            "Port": 4648,
+            "Tags": {
+                "role": "nomad",
+                "region": "us-central",
+                "port": "4647",
+                "dc": "chi1",
+                "vsn": "1",
+                "id": "4c91adba-6afb-d043-bf5a-47a377149706",
+                "mvn": "1",
+                "rpc_addr": "10.128.4.106",
+                "expect": "3",
+                "build": "1.0.2-zd47412+ent",
+                "raft_vsn": "2"
+            },
+            "Status": "alive",
+            "ProtocolMin": 1,
+            "ProtocolMax": 5,
+            "ProtocolCur": 2,
+            "DelegateMin": 2,
+            "DelegateMax": 5,
+            "DelegateCur": 4
+        },
+        {
+            "Name": "chi1-lapp847.us-central",
+            "Addr": "10.128.32.30",
+            "Port": 4648,
+            "Tags": {
+                "raft_vsn": "2",
+                "id": "c84db870-1aa4-1486-5efc-36cf643f708a",
+                "expect": "3",
+                "role": "nomad",
+                "region": "us-central",
+                "mvn": "1",
+                "port": "4647",
+                "rpc_addr": "10.128.32.30",
+                "dc": "chi1",
+                "vsn": "1",
+                "build": "1.0.2-zd47412+ent"
+            },
+            "Status": "alive",
+            "ProtocolMin": 1,
+            "ProtocolMax": 5,
+            "ProtocolCur": 2,
+            "DelegateMin": 2,
+            "DelegateMax": 5,
+            "DelegateCur": 4
+        }
+    ]
+}

@@ -1,0 +1,351 @@
+Swagger UI
+Select a definition
+
+apicontrolplane-service-grpc
+gRPC API Control Plane Service
+ v1 
+./schema/apicontrolplane.swagger.json
+The BEDEV2 implementation of the Roblox Services Platform.
+Confluence Page
+ApiControlPlaneAPI
+ApiControlPlaneAPI defines methods for fetching service related information as well as update.
+
+ApiClients
+
+POST
+​/v1​/CreateApiClient
+CreateApiClient creates an API client
+DELETE
+​/v1​/DeleteApiClientByID
+DeleteApiClientByID deletes an API client by ID
+GET
+​/v1​/GetApiClientByID
+GetApiClientByID gets an API
+GET
+​/v1​/GetApiClientByKey
+GetApiClientByKey gets an API client by key
+GET
+​/v1​/GetApiClientByNote
+GetApiClientByNote gets an API client by note
+GET
+​/v1​/GetApiClients
+GetApiClients gets all API clients
+GET
+​/v1​/GetApiClientsPaged
+GetApiClientsPaged gets all API clients paged
+PUT
+​/v1​/UpdateApiClientByID
+UpdateApiClientByID updates an API client by ID
+AuthorizationTypes
+
+POST
+​/v1​/CreateAuthorizationType
+CreateAuthorizationType creates an authorization type
+DELETE
+​/v1​/DeleteAuthorizationTypeByID
+DeleteAuthorizationTypeByID deletes an authorization type by ID
+GET
+​/v1​/GetAuthorizationTypeByID
+GetAuthorizationTypeByID gets an authorization type by ID
+GET
+​/v1​/GetAuthorizationTypeByValue
+GetAuthorizationTypeByValue gets an authorization type by value
+GET
+​/v1​/GetAuthorizationTypes
+GetAuthorizationTypes gets all authorization types
+GET
+​/v1​/GetOrCreateAuthorizationType
+GetOrCreateAuthorizationType gets or creates an authorization type
+PUT
+​/v1​/UpdateAuthorizationTypeByID
+UpdateAuthorizationTypeByID updates an authorization type by ID
+Operations
+
+POST
+​/v1​/CreateOperation
+CreateOperation creates an operation
+DELETE
+​/v1​/DeleteOperationByID
+DeleteOperationByID deletes an operation by ID
+GET
+​/v1​/GetOperationByID
+GetOperationByID gets an operation by ID
+GET
+​/v1​/GetOperationByName
+GetOperationByName gets an operation by name
+GET
+​/v1​/GetOperationByService
+GetOperationByService gets an operation by service
+GET
+​/v1​/GetOperations
+GetOperations gets all operations
+GET
+​/v1​/GetOperationsByService
+GetOperationsByService gets all operations by service
+GET
+​/v1​/GetOperationsByServicePaged
+GetOperationsByServicePaged gets all operations by service paged
+GET
+​/v1​/GetOperationsPaged
+GetOperationsPaged gets all operations paged
+PUT
+​/v1​/UpdateOperationByID
+UpdateOperationByID updates an operation by ID
+OperationAuthorizations
+
+POST
+​/v1​/CreateOperationAuthorization
+CreateOperationAuthorization creates an operation authorization
+DELETE
+​/v1​/DeleteOperationAuthorizationByID
+DeleteOperationAuthorizationByID deletes an operation authorization by ID
+GET
+​/v1​/GetOperationAuthorizationByID
+GetOperationAuthorizationByID gets an operation authorization by ID
+GET
+​/v1​/GetOperationAuthorizationByOperationAndApiClient
+GetOperationAuthorizationByOperationAndApiClient gets an operation authorization by operation and api client
+GET
+​/v1​/GetOperationAuthorizations
+GetOperationAuthorizations gets all operation authorizations
+GET
+​/v1​/GetOperationAuthorizationsByApiClient
+GetOperationAuthorizationsByApiClient gets all operation authorizations by api client
+GET
+​/v1​/GetOperationAuthorizationsByApiClientPaged
+GetOperationAuthorizationsByApiClientPaged gets all operation authorizations by api client paged
+GET
+​/v1​/GetOperationAuthorizationsByOperation
+GetOperationAuthorizationsByOperation gets all operation authorizations by operation
+GET
+​/v1​/GetOperationAuthorizationsByOperationPaged
+GetOperationAuthorizationsByOperationPaged gets all operation authorizations by operation paged
+GET
+​/v1​/GetOperationAuthorizationsPaged
+GetOperationAuthorizationsPaged gets all operation authorizations paged
+PUT
+​/v1​/UpdateOperationAuthorizationByID
+UpdateOperationAuthorizationByID updates an operation authorization by ID
+Services
+
+POST
+​/v1​/CreateService
+CreateService creates a service
+DELETE
+​/v1​/DeleteServiceByID
+DeleteServiceByID deletes a service by ID
+GET
+​/v1​/GetServiceByID
+GetServiceByID gets a service by ID
+GET
+​/v1​/GetServiceByName
+GetServiceByName gets a service by name
+GET
+​/v1​/GetServices
+GetServices gets all services
+GET
+​/v1​/GetServicesPaged
+GetServicesPaged gets all services paged
+PUT
+​/v1​/UpdateServiceByID
+UpdateServiceByID updates a service by ID
+ServiceAuthorizations
+
+POST
+​/v1​/CreateServiceAuthorization
+CreateServiceAuthorization creates a service authorization
+DELETE
+​/v1​/DeleteServiceAuthorizationByID
+DeleteServiceAuthorizationByID deletes a service authorization by ID
+GET
+​/v1​/GetServiceAuthorizationByID
+GetServiceAuthorizationByID gets a service authorization by ID
+GET
+​/v1​/GetServiceAuthorizationByServiceAndApiClient
+GetServiceAuthorizationByServiceAndApiClient gets a service authorization by service and api client
+GET
+​/v1​/GetServiceAuthorizations
+GetServiceAuthorizations gets all service authorizations
+GET
+​/v1​/GetServiceAuthorizationsByApiClient
+GetServiceAuthorizationsByApiClient gets all service authorizations by api client
+GET
+​/v1​/GetServiceAuthorizationsByApiClientPaged
+GetServiceAuthorizationsByApiClientPaged gets all service authorizations by api client paged
+GET
+​/v1​/GetServiceAuthorizationsByService
+GetServiceAuthorizationsByService gets all service authorizations by service
+GET
+​/v1​/GetServiceAuthorizationsByServicePaged
+GetServiceAuthorizationsByServicePaged gets all service authorizations by service paged
+GET
+​/v1​/GetServiceAuthorizationsPaged
+GetServiceAuthorizationsPaged gets all service authorizations paged
+PUT
+​/v1​/UpdateServiceAuthorizationByID
+UpdateServiceAuthorizationByID updates a service authorization by ID
+StatusTypes
+
+POST
+​/v1​/CreateStatusType
+CreateStatusType creates a status type
+DELETE
+​/v1​/DeleteStatusTypeByID
+DeleteStatusTypeByID deletes a status type by ID
+GET
+​/v1​/GetOrCreateStatusType
+GetOrCreateStatusType gets or creates a status type
+GET
+​/v1​/GetStatusTypeByID
+GetStatusTypeByID gets a status type by ID
+GET
+​/v1​/GetStatusTypeByValue
+GetStatusTypeByValue gets a status type by value
+GET
+​/v1​/GetStatusTypes
+GetStatusTypes gets all status types
+PUT
+​/v1​/UpdateStatusTypeByID
+UpdateStatusTypeByID updates a status type by ID
+Authorizations
+
+GET
+​/v1​/GetAuditAuthorizationsByService
+GetAuditAuthorizationsByService gets all audit authorizations by service
+GET
+​/v1​/GetAuditAuthorizationsByServicePaged
+GetAuditAuthorizationsByServicePaged gets all audit authorizations by service paged
+GET
+​/v1​/GetAuthorizationsByApiClient
+GetAuthorizationsByApiClient gets all authorizations by api client
+GET
+​/v1​/GetAuthorizationsByApiClientPaged
+GetAuthorizationsByApiClientPaged gets all authorizations by api client paged
+Configuration
+
+POST
+​/v1​/ImportConfiguration
+Import a configuration from a file.
+POST
+​/v1​/ImportSphynxConfiguration
+Import a Sphynx configuration from a file.
+Models
+ImportConfigurationRequest.ApiClient.Authorization
+ImportConfigurationResponse.ApiClientKey
+ImportConfigurationResponse.ApiClientKey.Authorization
+ImportSphynxConfigurationRequest.Bedev2Template
+ImportSphynxConfigurationRequest.HaproxyConfiguration
+ImportSphynxConfigurationRequest.HaproxyConfiguration.Backend
+ImportSphynxConfigurationRequest.HaproxyConfiguration.Backend.LoadBalancer
+ImportSphynxConfigurationRequest.HaproxyConfiguration.Backend.LoadBalancer.Method
+ImportSphynxConfigurationRequest.HaproxyConfiguration.Frontend
+ImportSphynxConfigurationRequest.HaproxyConfiguration.Frontend.Entrypoint
+ImportSphynxConfigurationRequest.LbaaSConfiguration
+ImportSphynxConfigurationRequest.LbaaSConfiguration.Frontend
+ImportSphynxConfigurationRequest.LbaaSConfiguration.Frontend.Entrypoint
+ImportSphynxConfigurationRequest.SphynxConfiguration
+ImportSphynxConfigurationRequest.TraefikConfiguration
+ImportSphynxConfigurationRequest.TraefikConfiguration.Backend
+ImportSphynxConfigurationRequest.TraefikConfiguration.Backend.LoadBalancer
+ImportSphynxConfigurationRequest.TraefikConfiguration.Backend.LoadBalancer.Method
+ImportSphynxConfigurationRequest.TraefikConfiguration.Frontend
+ImportSphynxConfigurationRequest.TraefikConfiguration.Frontend.Entrypoint
+ImportSphynxConfigurationRequest.SphynxConfiguration.Reroute.Cors
+ImportSphynxConfigurationRequest.SphynxConfiguration.Reroute
+ImportSphynxConfigurationRequest.SphynxConfiguration.Reroute.Protocol
+protobufAny
+rpcStatus
+ApiClient
+Authorization
+Operation
+AuthorizationType
+AuthorizationTypeEntity
+CreateApiClientRequest
+CreateApiClientResponse
+CreateAuthorizationTypeRequest
+CreateAuthorizationTypeResponse
+CreateOperationAuthorizationRequest
+CreateOperationAuthorizationResponse
+CreateOperationRequest
+CreateOperationResponse
+CreateServiceAuthorizationRequest
+CreateServiceAuthorizationResponse
+CreateServiceRequest
+CreateServiceResponse
+CreateStatusTypeRequest
+CreateStatusTypeResponse
+DeleteApiClientByIDResponse
+DeleteAuthorizationTypeByIDResponse
+DeleteOperationAuthorizationByIDResponse
+DeleteOperationByIDResponse
+DeleteServiceAuthorizationByIDResponse
+DeleteServiceByIDResponse
+DeleteStatusTypeByIDResponse
+GetApiClientByIDResponse
+GetApiClientByKeyResponse
+GetApiClientByNoteResponse
+GetApiClientsPagedResponse
+GetApiClientsResponse
+GetAuditAuthorizationsByServicePagedResponse
+GetAuditAuthorizationsByServiceResponse
+GetAuthorizationTypeByIDResponse
+GetAuthorizationTypeByValueResponse
+GetAuthorizationTypesResponse
+GetAuthorizationsByApiClientPagedResponse
+GetAuthorizationsByApiClientResponse
+GetOperationAuthorizationByIDResponse
+GetOperationAuthorizationByOperationAndApiClientResponse
+GetOperationAuthorizationsByApiClientPagedResponse
+GetOperationAuthorizationsByApiClientResponse
+GetOperationAuthorizationsByOperationPagedResponse
+GetOperationAuthorizationsByOperationResponse
+GetOperationAuthorizationsPagedResponse
+GetOperationAuthorizationsResponse
+GetOperationByIDResponse
+GetOperationByNameResponse
+GetOperationByServiceResponse
+GetOperationsByServicePagedResponse
+GetOperationsByServiceResponse
+GetOperationsPagedResponse
+GetOperationsResponse
+GetOrCreateAuthorizationTypeResponse
+GetOrCreateStatusTypeResponse
+GetServiceAuthorizationByIDResponse
+GetServiceAuthorizationByServiceAndApiClientResponse
+GetServiceAuthorizationsByApiClientPagedResponse
+GetServiceAuthorizationsByApiClientResponse
+GetServiceAuthorizationsByServicePagedResponse
+GetServiceAuthorizationsByServiceResponse
+GetServiceAuthorizationsPagedResponse
+GetServiceAuthorizationsResponse
+GetServiceByIDResponse
+GetServiceByNameResponse
+GetServicesPagedResponse
+GetServicesResponse
+GetStatusTypeByIDResponse
+GetStatusTypeByValueResponse
+GetStatusTypesResponse
+ImportConfigurationRequest
+ImportConfigurationRequest.ApiClient
+ImportConfigurationRequest.Operation
+ImportConfigurationResponse
+ImportSphynxConfigurationRequest
+ImportSphynxConfigurationResponse
+OperationAuthorization
+Service
+ServiceAuthorization
+StatusTypeEntity
+UpdateApiClientByIDRequest
+UpdateApiClientByIDResponse
+UpdateAuthorizationTypeByIDRequest
+UpdateAuthorizationTypeByIDResponse
+UpdateOperationAuthorizationByIDRequest
+UpdateOperationAuthorizationByIDResponse
+UpdateOperationByIDRequest
+UpdateOperationByIDResponse
+UpdateServiceAuthorizationByIDRequest
+UpdateServiceAuthorizationByIDResponse
+UpdateServiceByIDRequest
+UpdateServiceByIDResponse
+UpdateStatusTypeByIDRequest
+UpdateStatusTypeByIDResponse

@@ -1,0 +1,3559 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#roblox%2froblox2%2fconfiguration%2fservice%2fv1%2fconfiguration.proto">roblox/roblox2/configuration/service/v1/configuration.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.ConnectionString"><span class="badge">M</span>ConnectionString</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.EnvironmentDetails"><span class="badge">M</span>EnvironmentDetails</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup"><span class="badge">M</span>PopulatedGroup</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.Setting"><span class="badge">M</span>Setting</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.VarianceDetails"><span class="badge">M</span>VarianceDetails</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.Datacenter"><span class="badge">E</span>Datacenter</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.Environment"><span class="badge">E</span>Environment</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.Region"><span class="badge">E</span>Region</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.SettingType"><span class="badge">E</span>SettingType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#roblox%2froblox2%2fconfiguration%2fservice%2fv1%2fconfiguration_api.proto">roblox/roblox2/configuration/service/v1/configuration_api.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewConnectionStringRequest"><span class="badge">M</span>CreateNewConnectionStringRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewConnectionStringResponse"><span class="badge">M</span>CreateNewConnectionStringResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupRequest"><span class="badge">M</span>CreateNewPopulatedGroupRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupResponse"><span class="badge">M</span>CreateNewPopulatedGroupResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewSettingRequest"><span class="badge">M</span>CreateNewSettingRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.CreateNewSettingResponse"><span class="badge">M</span>CreateNewSettingResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDRequest"><span class="badge">M</span>DeleteConnectionStringByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDResponse"><span class="badge">M</span>DeleteConnectionStringByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameRequest"><span class="badge">M</span>DeleteConnectionStringByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameResponse"><span class="badge">M</span>DeleteConnectionStringByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDRequest"><span class="badge">M</span>DeletePopulatedGroupByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDResponse"><span class="badge">M</span>DeletePopulatedGroupByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameRequest"><span class="badge">M</span>DeletePopulatedGroupByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameResponse"><span class="badge">M</span>DeletePopulatedGroupByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByIDRequest"><span class="badge">M</span>DeleteSettingByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByIDResponse"><span class="badge">M</span>DeleteSettingByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByNameRequest"><span class="badge">M</span>DeleteSettingByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByNameResponse"><span class="badge">M</span>DeleteSettingByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByIDRequest"><span class="badge">M</span>GetConnectionStringByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByIDResponse"><span class="badge">M</span>GetConnectionStringByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByNameRequest"><span class="badge">M</span>GetConnectionStringByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByNameResponse"><span class="badge">M</span>GetConnectionStringByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedRequest"><span class="badge">M</span>GetConnectionStringsByGroupNamePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedResponse"><span class="badge">M</span>GetConnectionStringsByGroupNamePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedRequest"><span class="badge">M</span>GetConnectionStringsByNamePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedResponse"><span class="badge">M</span>GetConnectionStringsByNamePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedRequest"><span class="badge">M</span>GetConnectionStringsByValuePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedResponse"><span class="badge">M</span>GetConnectionStringsByValuePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDRequest"><span class="badge">M</span>GetPopulatedGroupByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDResponse"><span class="badge">M</span>GetPopulatedGroupByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameRequest"><span class="badge">M</span>GetPopulatedGroupByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameResponse"><span class="badge">M</span>GetPopulatedGroupByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedRequest"><span class="badge">M</span>GetPopulatedGroupsPagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedResponse"><span class="badge">M</span>GetPopulatedGroupsPagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingByIDRequest"><span class="badge">M</span>GetSettingByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingByIDResponse"><span class="badge">M</span>GetSettingByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingByNameRequest"><span class="badge">M</span>GetSettingByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingByNameResponse"><span class="badge">M</span>GetSettingByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedRequest"><span class="badge">M</span>GetSettingsByGroupNamePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedResponse"><span class="badge">M</span>GetSettingsByGroupNamePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedRequest"><span class="badge">M</span>GetSettingsByNamePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedResponse"><span class="badge">M</span>GetSettingsByNamePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedRequest"><span class="badge">M</span>GetSettingsByValuePagedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedResponse"><span class="badge">M</span>GetSettingsByValuePagedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest"><span class="badge">M</span>GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse"><span class="badge">M</span>GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest"><span class="badge">M</span>GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse"><span class="badge">M</span>GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDRequest"><span class="badge">M</span>UpdateConnectionStringByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDResponse"><span class="badge">M</span>UpdateConnectionStringByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameRequest"><span class="badge">M</span>UpdateConnectionStringByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameResponse"><span class="badge">M</span>UpdateConnectionStringByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDRequest"><span class="badge">M</span>UpdatePopulatedGroupByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDResponse"><span class="badge">M</span>UpdatePopulatedGroupByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameRequest"><span class="badge">M</span>UpdatePopulatedGroupByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameResponse"><span class="badge">M</span>UpdatePopulatedGroupByNameResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByIDRequest"><span class="badge">M</span>UpdateSettingByIDRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByIDResponse"><span class="badge">M</span>UpdateSettingByIDResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByNameRequest"><span class="badge">M</span>UpdateSettingByNameRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByNameResponse"><span class="badge">M</span>UpdateSettingByNameResponse</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#roblox.roblox2.configuration.service.v1.ConfigurationAPI"><span class="badge">S</span>ConfigurationAPI</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="roblox/roblox2/configuration/service/v1/configuration.proto">roblox/roblox2/configuration/service/v1/configuration.proto</h2><a href="#title">Top</a>
+      </div>
+      <p>gRPC Messages</p><p>Copyright © 2022 Roblox</p>
+
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</h3>
+        <p>Represents a single connection string.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the group this connection string belongs to. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>environment_details</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.EnvironmentDetails">EnvironmentDetails</a></td>
+                  <td></td>
+                  <td><p>Environment details for the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>variance_details</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.VarianceDetails">VarianceDetails</a></td>
+                  <td></td>
+                  <td><p>Variance details for the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The created date for this connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The updated date for this connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.EnvironmentDetails">EnvironmentDetails</h3>
+        <p>Represents setting environment details.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>environment</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Environment">Environment</a></td>
+                  <td></td>
+                  <td><p>The environment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>region</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Region">Region</a></td>
+                  <td></td>
+                  <td><p>The region. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>datacenter</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Datacenter">Datacenter</a></td>
+                  <td></td>
+                  <td><p>The datacenter </p></td>
+                </tr>
+              
+                <tr>
+                  <td>authority</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The gRPC authority. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>vault_server</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The vault server being used by the callee. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</h3>
+        <p>Represents a single populated group.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the populated group. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the populated group. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>environment_details</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.EnvironmentDetails">EnvironmentDetails</a></td>
+                  <td></td>
+                  <td><p>Environment details for the populated group. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The created date for this populated group. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The updated date for this populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.Setting">Setting</h3>
+        <p>Represents a single setting.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the group this setting belongs to. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The name of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.SettingType">SettingType</a></td>
+                  <td></td>
+                  <td><p>The type of this setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_masked</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the setting value masked? </p></td>
+                </tr>
+              
+                <tr>
+                  <td>environment_details</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.EnvironmentDetails">EnvironmentDetails</a></td>
+                  <td></td>
+                  <td><p>Environment details for the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>variance_details</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.VarianceDetails">VarianceDetails</a></td>
+                  <td></td>
+                  <td><p>Variance details for the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The created date for this setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The updated date for this setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.VarianceDetails">VarianceDetails</h3>
+        <p>Represents setting environment variance details.</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_value_unique_for_production</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the parent unique for just production? </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_value_same_for_all_test_environments</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the parent the same in all test environments? (stage, test and dev) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_environment_specific</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the parent environment specific? </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.Datacenter">Datacenter</h3>
+        <p>Datacenter defines which datacenter the setting was fetched from.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DATACENTER_CHI1</td>
+                <td>0</td>
+                <td><p>Production</p></td>
+              </tr>
+            
+              <tr>
+                <td>DATACENTER_ASH1</td>
+                <td>1</td>
+                <td><p>Offload us-central</p></td>
+              </tr>
+            
+              <tr>
+                <td>DATACENTER_RA</td>
+                <td>2</td>
+                <td><p>RBX-Alpha</p></td>
+              </tr>
+            
+              <tr>
+                <td>DATACENTER_AWA</td>
+                <td>3</td>
+                <td><p>Amazon-West-Alpha</p></td>
+              </tr>
+            
+              <tr>
+                <td>DATACENTER_SNC2</td>
+                <td>4</td>
+                <td><p>Test-new</p></td>
+              </tr>
+            
+              <tr>
+                <td>DATACENTER_SNC3</td>
+                <td>5</td>
+                <td><p>Dev-new</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.Environment">Environment</h3>
+        <p>Environment defines which environment a setting was fetched from.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ENVIRONMENT_PROD</td>
+                <td>0</td>
+                <td><p>Production</p></td>
+              </tr>
+            
+              <tr>
+                <td>ENVIRONMENT_ST1</td>
+                <td>1</td>
+                <td><p>Staging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ENVIRONMENT_ST2</td>
+                <td>2</td>
+                <td><p>Testing.</p></td>
+              </tr>
+            
+              <tr>
+                <td>ENVIRONMENT_ST3</td>
+                <td>3</td>
+                <td><p>Development.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.Region">Region</h3>
+        <p>Region defines which region the setting was fetched from.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>REGION_US_EAST</td>
+                <td>0</td>
+                <td><p>us-east</p></td>
+              </tr>
+            
+              <tr>
+                <td>REGION_US_CENTRAL</td>
+                <td>1</td>
+                <td><p>us-central</p></td>
+              </tr>
+            
+              <tr>
+                <td>REGION_US_WEST</td>
+                <td>2</td>
+                <td><p>us-west</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.SettingType">SettingType</h3>
+        <p>The typeof setting.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SETTING_TYPE_INT32</td>
+                <td>0</td>
+                <td><p>System.Int32</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_UINT32</td>
+                <td>1</td>
+                <td><p>System.UInt32</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_INT64</td>
+                <td>2</td>
+                <td><p>System.Int64</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_UINT64</td>
+                <td>3</td>
+                <td><p>System.UInt64</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_DOUBLE</td>
+                <td>4</td>
+                <td><p>System.Double</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_DECIMAL</td>
+                <td>5</td>
+                <td><p>System.Decimal</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_FLOAT</td>
+                <td>6</td>
+                <td><p>System.Float - Deprecated, use System.Single</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_SINGLE</td>
+                <td>7</td>
+                <td><p>System.Single</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_REDIS_ENDPOINTS</td>
+                <td>8</td>
+                <td><p>Roblox.Redis.RedisEndpoints</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_CSV</td>
+                <td>9</td>
+                <td><p>Roblox.Csv</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_WEIGHTED_CSV</td>
+                <td>10</td>
+                <td><p>Roblox.Configuration.WeightedCsv</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_BOOLEAN</td>
+                <td>11</td>
+                <td><p>System.Boolean</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_GUID</td>
+                <td>12</td>
+                <td><p>System.Guid</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_BYTE</td>
+                <td>13</td>
+                <td><p>System.Byte</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_SBYTE</td>
+                <td>14</td>
+                <td><p>System.SByte</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_STRING</td>
+                <td>15</td>
+                <td><p>System.String</p></td>
+              </tr>
+            
+              <tr>
+                <td>SETTING_TYPE_TIME_SPAN</td>
+                <td>16</td>
+                <td><p>System.TimeSpan</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="roblox/roblox2/configuration/service/v1/configuration_api.proto">roblox/roblox2/configuration/service/v1/configuration_api.proto</h2><a href="#title">Top</a>
+      </div>
+      <p>gRPC Service</p><p>Copyright © 2022 Roblox</p>
+
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewConnectionStringRequest">CreateNewConnectionStringRequest</h3>
+        <p>Request that has Name for CreateNewConnectionString</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewConnectionStringResponse">CreateNewConnectionStringResponse</h3>
+        <p>Response for CreateNewConnectionString</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupRequest">CreateNewPopulatedGroupRequest</h3>
+        <p>Request that has Name for CreateNewPopulatedGroup</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupResponse">CreateNewPopulatedGroupResponse</h3>
+        <p>Response for CreateNewPopulatedGroup</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewSettingRequest">CreateNewSettingRequest</h3>
+        <p>Request that has Name for CreateNewSetting</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.SettingType">SettingType</a></td>
+                  <td></td>
+                  <td><p>The type of this setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_masked</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the setting value masked? </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.CreateNewSettingResponse">CreateNewSettingResponse</h3>
+        <p>Response for CreateNewSetting</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDRequest">DeleteConnectionStringByIDRequest</h3>
+        <p>Request that has ID for DeleteConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDResponse">DeleteConnectionStringByIDResponse</h3>
+        <p>Response for DeleteConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameRequest">DeleteConnectionStringByNameRequest</h3>
+        <p>Request that has Name for DeleteConnectionStringByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameResponse">DeleteConnectionStringByNameResponse</h3>
+        <p>Response for DeleteConnectionStringByIDRequest</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDRequest">DeletePopulatedGroupByIDRequest</h3>
+        <p>Request that has ID for DeletePopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDResponse">DeletePopulatedGroupByIDResponse</h3>
+        <p>Response for DeletePopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameRequest">DeletePopulatedGroupByNameRequest</h3>
+        <p>Request that has Name for DeletePopulatedGroupByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameResponse">DeletePopulatedGroupByNameResponse</h3>
+        <p>Response for DeletePopulatedGroupByIDRequest</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteSettingByIDRequest">DeleteSettingByIDRequest</h3>
+        <p>Request that has ID for DeleteSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteSettingByIDResponse">DeleteSettingByIDResponse</h3>
+        <p>Response for DeleteSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteSettingByNameRequest">DeleteSettingByNameRequest</h3>
+        <p>Request that has Name for DeleteSettingByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.DeleteSettingByNameResponse">DeleteSettingByNameResponse</h3>
+        <p>Response for DeleteSettingByIDRequest</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringByIDRequest">GetConnectionStringByIDRequest</h3>
+        <p>Request that has ID for GetConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringByIDResponse">GetConnectionStringByIDResponse</h3>
+        <p>Response for GetConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringByNameRequest">GetConnectionStringByNameRequest</h3>
+        <p>Request that has Name for GetConnectionStringByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringByNameResponse">GetConnectionStringByNameResponse</h3>
+        <p>Response for GetConnectionStringByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedRequest">GetConnectionStringsByGroupNamePagedRequest</h3>
+        <p>Request that has GroupName for GetConnectionStringsByGroupNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedResponse">GetConnectionStringsByGroupNamePagedResponse</h3>
+        <p>Response for GetConnectionStringsByGroupNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td>repeated</td>
+                  <td><p>The connection strings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedRequest">GetConnectionStringsByNamePagedRequest</h3>
+        <p>Request that has Name for GetConnectionStringsByNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>connection_string_name_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedResponse">GetConnectionStringsByNamePagedResponse</h3>
+        <p>Response for GetConnectionStringsByNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td>repeated</td>
+                  <td><p>The connection strings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedRequest">GetConnectionStringsByValuePagedRequest</h3>
+        <p>Request that has Value for GetConnectionStringsByValuePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>connection_string_value_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Value to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedResponse">GetConnectionStringsByValuePagedResponse</h3>
+        <p>Response for GetConnectionStringsByValuePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td>repeated</td>
+                  <td><p>The connection strings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDRequest">GetPopulatedGroupByIDRequest</h3>
+        <p>Request that has ID for GetPopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDResponse">GetPopulatedGroupByIDResponse</h3>
+        <p>Response for GetPopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameRequest">GetPopulatedGroupByNameRequest</h3>
+        <p>Request that has Name for GetPopulatedGroupByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameResponse">GetPopulatedGroupByNameResponse</h3>
+        <p>Response for GetPopulatedGroupByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedRequest">GetPopulatedGroupsPagedRequest</h3>
+        <p>Request for GetPopulatedGroupsPaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedResponse">GetPopulatedGroupsPagedResponse</h3>
+        <p>Response for GetPopulatedGroupsPaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td>repeated</td>
+                  <td><p>The populated groups. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingByIDRequest">GetSettingByIDRequest</h3>
+        <p>Request that has ID for GetSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingByIDResponse">GetSettingByIDResponse</h3>
+        <p>Response for GetSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingByNameRequest">GetSettingByNameRequest</h3>
+        <p>Request that has Name for GetSettingByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingByNameResponse">GetSettingByNameResponse</h3>
+        <p>Response for GetSettingByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedRequest">GetSettingsByGroupNamePagedRequest</h3>
+        <p>Request that has GroupName for GetSettingsByGroupNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedResponse">GetSettingsByGroupNamePagedResponse</h3>
+        <p>Response for GetSettingsByGroupNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td>repeated</td>
+                  <td><p>The settings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedRequest">GetSettingsByNamePagedRequest</h3>
+        <p>Request that has Name for GetSettingsByNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>setting_name_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedResponse">GetSettingsByNamePagedResponse</h3>
+        <p>Response for GetSettingsByNamePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td>repeated</td>
+                  <td><p>The settings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedRequest">GetSettingsByValuePagedRequest</h3>
+        <p>Request that has Value for GetSettingsByValuePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>setting_value_pattern</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Value to query. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The page to start paging from. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The size of the page. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedResponse">GetSettingsByValuePagedResponse</h3>
+        <p>Response for GetSettingsByValuePaged</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td>repeated</td>
+                  <td><p>The settings. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>results_remaining</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The number of results remaining. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest">GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest</h3>
+        <p>Request that has Value for GetTotalNumberOfConnectionStringsByGroupNameAndUpdated</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The group name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The updated date. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse">GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse</h3>
+        <p>Response for GetTotalNumberOfConnectionStringsByGroupNameAndUpdated</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The setting count. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest">GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest</h3>
+        <p>Request that has Value for GetTotalNumberOfSettingsByGroupNameAndUpdated</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The group name </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updated</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>The updated date. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse">GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse</h3>
+        <p>Response for GetTotalNumberOfSettingsByGroupNameAndUpdated</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>The setting count. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDRequest">UpdateConnectionStringByIDRequest</h3>
+        <p>Request that has ID for UpdateConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDResponse">UpdateConnectionStringByIDResponse</h3>
+        <p>Response for UpdateConnectionStringByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameRequest">UpdateConnectionStringByNameRequest</h3>
+        <p>Request that has Name for UpdateConnectionStringByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>connection_string_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the connection string. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameResponse">UpdateConnectionStringByNameResponse</h3>
+        <p>Response for UpdateConnectionStringByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.ConnectionString">ConnectionString</a></td>
+                  <td></td>
+                  <td><p>The connection string. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDRequest">UpdatePopulatedGroupByIDRequest</h3>
+        <p>Request that has ID for UpdatePopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDResponse">UpdatePopulatedGroupByIDResponse</h3>
+        <p>Response for UpdatePopulatedGroupByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameRequest">UpdatePopulatedGroupByNameRequest</h3>
+        <p>Request that has Name for UpdatePopulatedGroupByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameResponse">UpdatePopulatedGroupByNameResponse</h3>
+        <p>Response for UpdatePopulatedGroupByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.PopulatedGroup">PopulatedGroup</a></td>
+                  <td></td>
+                  <td><p>The populated group. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateSettingByIDRequest">UpdateSettingByIDRequest</h3>
+        <p>Request that has ID for UpdateSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>The ID of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_masked</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the setting value masked? </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateSettingByIDResponse">UpdateSettingByIDResponse</h3>
+        <p>Response for UpdateSettingByID</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateSettingByNameRequest">UpdateSettingByNameRequest</h3>
+        <p>Request that has Name for UpdateSettingByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The GroupName of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The Name of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>setting_value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>The value of the setting. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>comment</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>An optional comment. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_masked</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>Is the setting value masked? </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.UpdateSettingByNameResponse">UpdateSettingByNameResponse</h3>
+        <p>Response for UpdateSettingByName</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>data</td>
+                  <td><a href="#roblox.roblox2.configuration.service.v1.Setting">Setting</a></td>
+                  <td></td>
+                  <td><p>The setting. </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="roblox.roblox2.configuration.service.v1.ConfigurationAPI">ConfigurationAPI</h3>
+        <p>ConfigurationAPI service defines methods for fetching configuration related information.</p><p>Also contains gRPC gateway definitions for configuration-v3.</p><p>Populated Groups:</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DeletePopulatedGroupByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDRequest">DeletePopulatedGroupByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByIDResponse">DeletePopulatedGroupByIDResponse</a></td>
+                <td><p>DeletePopulatedGroupByID deletes a populated group by ID</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeletePopulatedGroupByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameRequest">DeletePopulatedGroupByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeletePopulatedGroupByNameResponse">DeletePopulatedGroupByNameResponse</a></td>
+                <td><p>DeletePopulatedGroupByName deletes a populated group by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateNewPopulatedGroup</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupRequest">CreateNewPopulatedGroupRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewPopulatedGroupResponse">CreateNewPopulatedGroupResponse</a></td>
+                <td><p>CreateNewPopulatedGroup creates a new populated group.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdatePopulatedGroupByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDRequest">UpdatePopulatedGroupByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByIDResponse">UpdatePopulatedGroupByIDResponse</a></td>
+                <td><p>UpdatePopulatedGroupByID updates a populated group by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdatePopulatedGroupByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameRequest">UpdatePopulatedGroupByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdatePopulatedGroupByNameResponse">UpdatePopulatedGroupByNameResponse</a></td>
+                <td><p>UpdatePopulatedGroupByName updates a populated group by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPopulatedGroupByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDRequest">GetPopulatedGroupByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByIDResponse">GetPopulatedGroupByIDResponse</a></td>
+                <td><p>GetPopulatedGroupByID gets a populated group by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPopulatedGroupByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameRequest">GetPopulatedGroupByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupByNameResponse">GetPopulatedGroupByNameResponse</a></td>
+                <td><p>GetPopulatedGroupByName gets a populated group by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPopulatedGroupsPaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedRequest">GetPopulatedGroupsPagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetPopulatedGroupsPagedResponse">GetPopulatedGroupsPagedResponse</a></td>
+                <td><p>GetPopulatedGroupsPaged gets a list of populated groups with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteSettingByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByIDRequest">DeleteSettingByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByIDResponse">DeleteSettingByIDResponse</a></td>
+                <td><p>DeleteSettingByID deletes a setting by ID</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteSettingByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByNameRequest">DeleteSettingByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteSettingByNameResponse">DeleteSettingByNameResponse</a></td>
+                <td><p>DeleteSettingByName deletes a setting by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateNewSetting</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewSettingRequest">CreateNewSettingRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewSettingResponse">CreateNewSettingResponse</a></td>
+                <td><p>CreateNewSetting creates a new setting.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateSettingByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByIDRequest">UpdateSettingByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByIDResponse">UpdateSettingByIDResponse</a></td>
+                <td><p>UpdateSettingByID updates a setting by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateSettingByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByNameRequest">UpdateSettingByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateSettingByNameResponse">UpdateSettingByNameResponse</a></td>
+                <td><p>UpdateSettingByName updates a setting by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSettingByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingByIDRequest">GetSettingByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingByIDResponse">GetSettingByIDResponse</a></td>
+                <td><p>GetSettingByID gets a populated group by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSettingByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingByNameRequest">GetSettingByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingByNameResponse">GetSettingByNameResponse</a></td>
+                <td><p>GetSettingByName gets a populated group by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSettingsByGroupNamePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedRequest">GetSettingsByGroupNamePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByGroupNamePagedResponse">GetSettingsByGroupNamePagedResponse</a></td>
+                <td><p>GetSettingsByGroupNamePaged gets a list of settings by GroupName with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSettingsByNamePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedRequest">GetSettingsByNamePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByNamePagedResponse">GetSettingsByNamePagedResponse</a></td>
+                <td><p>GetSettingsByNamePaged gets a list of settings by Name pattern with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSettingsByValuePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedRequest">GetSettingsByValuePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetSettingsByValuePagedResponse">GetSettingsByValuePagedResponse</a></td>
+                <td><p>GetSettingsByValuePaged gets a list of settings by Value pattern with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTotalNumberOfSettingsByGroupNameAndUpdated</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest">GetTotalNumberOfSettingsByGroupNameAndUpdatedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse">GetTotalNumberOfSettingsByGroupNameAndUpdatedResponse</a></td>
+                <td><p>GetTotalNumberOfSettingsByGroupNameAndUpdated gets the count of settings by GroupName and Updated.</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteConnectionStringByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDRequest">DeleteConnectionStringByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByIDResponse">DeleteConnectionStringByIDResponse</a></td>
+                <td><p>DeleteConnectionStringByID deletes a connection-string by ID</p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteConnectionStringByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameRequest">DeleteConnectionStringByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.DeleteConnectionStringByNameResponse">DeleteConnectionStringByNameResponse</a></td>
+                <td><p>DeleteConnectionStringByName deletes a connection-string by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateNewConnectionString</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewConnectionStringRequest">CreateNewConnectionStringRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.CreateNewConnectionStringResponse">CreateNewConnectionStringResponse</a></td>
+                <td><p>CreateNewConnectionString creates a new connection-string.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateConnectionStringByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDRequest">UpdateConnectionStringByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByIDResponse">UpdateConnectionStringByIDResponse</a></td>
+                <td><p>UpdateConnectionStringByID updates a connection-string by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateConnectionStringByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameRequest">UpdateConnectionStringByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.UpdateConnectionStringByNameResponse">UpdateConnectionStringByNameResponse</a></td>
+                <td><p>UpdateConnectionStringByName updates a connection-string by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetConnectionStringByID</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByIDRequest">GetConnectionStringByIDRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByIDResponse">GetConnectionStringByIDResponse</a></td>
+                <td><p>GetConnectionStringByID gets a populated group by ID.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetConnectionStringByName</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByNameRequest">GetConnectionStringByNameRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringByNameResponse">GetConnectionStringByNameResponse</a></td>
+                <td><p>GetConnectionStringByName gets a populated group by Name.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetConnectionStringsByGroupNamePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedRequest">GetConnectionStringsByGroupNamePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByGroupNamePagedResponse">GetConnectionStringsByGroupNamePagedResponse</a></td>
+                <td><p>GetConnectionStringsByGroupNamePaged gets a list of connection-strings by GroupName with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetConnectionStringsByNamePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedRequest">GetConnectionStringsByNamePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByNamePagedResponse">GetConnectionStringsByNamePagedResponse</a></td>
+                <td><p>GetConnectionStringsByNamePaged gets a list of connection-strings by Name pattern with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetConnectionStringsByValuePaged</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedRequest">GetConnectionStringsByValuePagedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetConnectionStringsByValuePagedResponse">GetConnectionStringsByValuePagedResponse</a></td>
+                <td><p>GetConnectionStringsByValuePaged gets a list of connection-strings by Value pattern with optional paging.</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTotalNumberOfConnectionStringsByGroupNameAndUpdated</td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest">GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedRequest</a></td>
+                <td><a href="#roblox.roblox2.configuration.service.v1.GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse">GetTotalNumberOfConnectionStringsByGroupNameAndUpdatedResponse</a></td>
+                <td><p>GetTotalNumberOfConnectionStringsByGroupNameAndUpdated gets the count of connection-strings by GroupName and Updated.</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+          
+          
+          <h4>Methods with HTTP bindings</h4>
+          <table>
+            <thead>
+              <tr>
+                <td>Method Name</td>
+                <td>Method</td>
+                <td>Pattern</td>
+                <td>Body</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+              
+              
+              <tr>
+                <td>DeletePopulatedGroupByID</td>
+                <td>DELETE</td>
+                <td>/v1/populated-groups/delete-populated-group-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeletePopulatedGroupByName</td>
+                <td>DELETE</td>
+                <td>/v1/populated-groups/delete-populated-group-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>CreateNewPopulatedGroup</td>
+                <td>POST</td>
+                <td>/v1/populated-groups/create-populated-group</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdatePopulatedGroupByID</td>
+                <td>PATCH</td>
+                <td>/v1/populated-groups/update-populated-group-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdatePopulatedGroupByName</td>
+                <td>PATCH</td>
+                <td>/v1/populated-groups/update-populated-group-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetPopulatedGroupByID</td>
+                <td>GET</td>
+                <td>/v1/populated-groups/get-populated-group-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetPopulatedGroupByName</td>
+                <td>GET</td>
+                <td>/v1/populated-groups/get-populated-group-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetPopulatedGroupsPaged</td>
+                <td>GET</td>
+                <td>/v1/populated-groups/get-populated-groups</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteSettingByID</td>
+                <td>DELETE</td>
+                <td>/v1/settings/delete-setting-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteSettingByName</td>
+                <td>DELETE</td>
+                <td>/v1/settings/delete-setting-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>CreateNewSetting</td>
+                <td>POST</td>
+                <td>/v1/settings/create-setting</td>
+                <td>setting_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateSettingByID</td>
+                <td>PATCH</td>
+                <td>/v1/settings/update-setting-by-id</td>
+                <td>setting_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateSettingByName</td>
+                <td>PATCH</td>
+                <td>/v1/settings/update-setting-by-name</td>
+                <td>setting_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSettingByID</td>
+                <td>GET</td>
+                <td>/v1/settings/get-setting-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSettingByName</td>
+                <td>GET</td>
+                <td>/v1/settings/get-setting-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSettingsByGroupNamePaged</td>
+                <td>GET</td>
+                <td>/v1/settings/get-settings-group-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSettingsByNamePaged</td>
+                <td>GET</td>
+                <td>/v1/settings/get-settings-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetSettingsByValuePaged</td>
+                <td>GET</td>
+                <td>/v1/settings/get-settings-by-value</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetTotalNumberOfSettingsByGroupNameAndUpdated</td>
+                <td>GET</td>
+                <td>/v1/settings/get-count-of-settings</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteConnectionStringByID</td>
+                <td>DELETE</td>
+                <td>/v1/connection-strings/delete-connection-string-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>DeleteConnectionStringByName</td>
+                <td>DELETE</td>
+                <td>/v1/connection-strings/delete-connection-string-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>CreateNewConnectionString</td>
+                <td>POST</td>
+                <td>/v1/connection-strings/create-connection-string</td>
+                <td>connection_string_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateConnectionStringByID</td>
+                <td>PATCH</td>
+                <td>/v1/connection-strings/update-connection-string-by-id</td>
+                <td>connection_string_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>UpdateConnectionStringByName</td>
+                <td>PATCH</td>
+                <td>/v1/connection-strings/update-connection-string-by-name</td>
+                <td>connection_string_value</td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetConnectionStringByID</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-connection-string-by-id</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetConnectionStringByName</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-connection-string-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetConnectionStringsByGroupNamePaged</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-connection-strings-group-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetConnectionStringsByNamePaged</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-connection-strings-by-name</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetConnectionStringsByValuePaged</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-connection-strings-by-value</td>
+                <td></td>
+              </tr>
+              
+            
+              
+              
+              <tr>
+                <td>GetTotalNumberOfConnectionStringsByGroupNameAndUpdated</td>
+                <td>GET</td>
+                <td>/v1/connection-strings/get-count-of-connection-strings</td>
+                <td></td>
+              </tr>
+              
+            
+            </tbody>
+          </table>
+          
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
